@@ -10,7 +10,7 @@ const profile = require('./controllers/profile');
 const image = require('./controllers/image');
 
 const db = knex({
-    client: 'render',
+    client: 'pg',
     connection: {
         host: 'dpg-cl4n26c72pts739jbp70-a',
         port: 5432,
