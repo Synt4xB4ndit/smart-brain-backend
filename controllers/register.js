@@ -29,9 +29,6 @@ const handleRegister = (req, res, db, bcrypt) => {
         .catch(err => res.status(400).json('unable to register'))
 }
 
-const handleSignin = (req, res) => {
-
-}
 
 module.exports = {
     handleRegister: handleRegister
