@@ -32,4 +32,7 @@ const handleRegister = (req, res, db, bcrypt) => {
 const handleSignin = (req, res) => {
 
 }
-export default handleRegister;
+
+module.exports = {
+    handleRegister: handleRegister
+}

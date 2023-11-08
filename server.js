@@ -4,19 +4,19 @@ const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
 const knex = require('knex');
 
-import handleRegister from './controllers/register'
+const register = require('./controllers/register')
 const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
 
 const db = knex({
-    client: 'pg',
+    client: 'render',
     connection: {
         host: 'dpg-cl4n26c72pts739jbp70-a',
         port: 5432,
         user: 'smart_brain_api_038g_user',
         password: 'WnjwPgmEKSxOQmLZrmIHqOAmkZRMOdaQ',
-        database: 'postgres://smart_brain_api_038g_user:WnjwPgmEKSxOQmLZrmIHqOAmkZRMOdaQ@dpg-cl4n26c72pts739jbp70-a/smart_brain_api_038g',
+        database: 'smart-brain-api',
         // normally need an ENVIRONMENT VARIABLE
         ssl: true
     }
