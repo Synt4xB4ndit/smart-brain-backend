@@ -14,13 +14,12 @@ const DATABASE_URL = process.env.DATABASE_URL;
 const db = knex({
     client: 'pg',
     connection: {
-
-        connectionString: DATABASE_URL,
-        // host: 'dpg-cl4n26c72pts739jbp70-a',
-        // port: 5432,
-        // user: 'smart_brain_api_038g_user',
-        // password: 'WnjwPgmEKSxOQmLZrmIHqOAmkZRMOdaQ',
-        // database: 'smart-brain-api',
+        DATABASE_URL: DATABASE_URL,
+        host: 'PGPASSWORD=WnjwPgmEKSxOQmLZrmIHqOAmkZRMOdaQ psql -h dpg-cl4n26c72pts739jbp70-a.ohio-postgres.render.com -U smart_brain_api_038g_user smart_brain_api_038g',
+        port: 5432,
+        user: 'smart_brain_api_038g_user',
+        password: 'WnjwPgmEKSxOQmLZrmIHqOAmkZRMOdaQ',
+        database: 'smart-brain-api',
         // normally need an ENVIRONMENT VARIABLE
         ssl: true
     }
