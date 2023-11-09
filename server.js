@@ -14,12 +14,13 @@ const DATABASE_URL = process.env.DATABASE_URL;
 const db = knex({
     client: 'pg',
     connection: {
-        DATABASE_URL: DATABASE_URL,
-        host: 'dpg-cl4n26c72pts739jbp70-a',
-        port: 5432,
-        user: 'smart_brain_api_038g_user',
-        password: 'WnjwPgmEKSxOQmLZrmIHqOAmkZRMOdaQ',
-        database: 'smart-brain-api',
+
+        connectionString: DATABASE_URL,
+        // host: 'dpg-cl4n26c72pts739jbp70-a',
+        // port: 5432,
+        // user: 'smart_brain_api_038g_user',
+        // password: 'WnjwPgmEKSxOQmLZrmIHqOAmkZRMOdaQ',
+        // database: 'smart-brain-api',
         // normally need an ENVIRONMENT VARIABLE
         ssl: true
     }
@@ -65,8 +66,8 @@ app.post('/imageUrl', (req, res) => { image.handleApiCall(req, res) })
 
 
 
-app.listen(5432, () => {
-    console.log('App is running on port 5432')
+app.listen(3000, () => {
+    console.log('App is running on port 3000')
 })
 
 
