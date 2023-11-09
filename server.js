@@ -9,9 +9,12 @@ const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
 
+const DATABASE_URL = process.env.DATABASE_URL;
+
 const db = knex({
     client: 'pg',
     connection: {
+        DATABASE_URL: DATABASE_URL,
         host: 'dpg-cl4n26c72pts739jbp70-a',
         port: 5432,
         user: 'smart_brain_api_038g_user',
@@ -59,6 +62,7 @@ app.post('/imageUrl', (req, res) => { image.handleApiCall(req, res) })
 // });
 
 // const DATABASE_URL = process.env.DATABASE_URL
+
 
 
 app.listen(5432, () => {
