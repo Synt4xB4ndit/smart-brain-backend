@@ -9,19 +9,20 @@ const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
 
-const DATABASE_URL = process.env.DATABASE_URL;
+// const DATABASE_URL = process.env.DATABASE_URL;
 
 const db = knex({
     client: 'pg',
     connection: {
-        DATABASE_URL: DATABASE_URL,
-        host: 'PGPASSWORD=WnjwPgmEKSxOQmLZrmIHqOAmkZRMOdaQ psql -h dpg-cl4n26c72pts739jbp70-a.ohio-postgres.render.com -U smart_brain_api_038g_user smart_brain_api_038g',
-        port: 5432,
-        user: 'smart_brain_api_038g_user',
-        password: 'WnjwPgmEKSxOQmLZrmIHqOAmkZRMOdaQ',
-        database: 'smart-brain-api',
+        connectionString: process.env.POSTGRES_URL + '?sslmode=require',
+        //  DATABASE_URL: DATABASE_URL,
+        //  host: 'PGPASSWORD=WnjwPgmEKSxOQmLZrmIHqOAmkZRMOdaQ psql -h dpg-cl4n26c72pts739jbp70-a.ohio-postgres.render.com -U smart_brain_api_038g_user smart_brain_api_038g',
+        //  port: 5432,
+        //  user: 'smart_brain_api_038g_user',
+        //  password: 'WnjwPgmEKSxOQmLZrmIHqOAmkZRMOdaQ',
+        //  database: 'smart-brain-api',
         // normally need an ENVIRONMENT VARIABLE
-        ssl: true
+        // ssl: true
     }
 });
 
@@ -65,7 +66,7 @@ app.post('/imageUrl', (req, res) => { image.handleApiCall(req, res) })
 
 
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
     console.log('App is running on port 3000')
 })
 
