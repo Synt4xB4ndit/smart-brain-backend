@@ -9,22 +9,25 @@ const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
 
-// const DATABASE_URL = process.env.DATABASE_URL;
 
+// const PORT = process.env.PORT
+// const DATABASE_URL = process.env.DATABASE_URL
+// We have to delcare Environment Variables for the Info
 const db = knex({
     client: 'pg',
     connection: {
-        connectionString: process.env.POSTGRES_URL + '?sslmode=require',
-        //  DATABASE_URL: DATABASE_URL,
-        //  host: 'PGPASSWORD=WnjwPgmEKSxOQmLZrmIHqOAmkZRMOdaQ psql -h dpg-cl4n26c72pts739jbp70-a.ohio-postgres.render.com -U smart_brain_api_038g_user smart_brain_api_038g',
-        //  port: 5432,
-        //  user: 'smart_brain_api_038g_user',
-        //  password: 'WnjwPgmEKSxOQmLZrmIHqOAmkZRMOdaQ',
-        //  database: 'smart-brain-api',
+        connectionString: process.env.DATABASE_URL,
+        ssl: { rejectUnauthorized: false },
+        host: process.env.DATABASE_HOST,
+        port: 5432,
+        user: process.env.DATABASE_USER,
+        password: process.env.DATABASE_PW,
+        database: process.env.DATABASE_DB,
         // normally need an ENVIRONMENT VARIABLE
         // ssl: true
     }
 });
+
 
 // CHECKS FOR USERS AND THERE ARE NONE 
 //db.select('*').from('users').then(data => {
@@ -66,9 +69,10 @@ app.post('/imageUrl', (req, res) => { image.handleApiCall(req, res) })
 
 
 
-app.listen(process.env.PORT, () => {
+app.listen(3000, () => {
     console.log('App is running on port 3000')
 })
+
 
 
 
